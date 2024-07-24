@@ -1,0 +1,8 @@
+FROM python:3.12-alpine
+
+WORKDIR /usr/src/app
+
+COPY util.py log_writer.py /usr/src/app/
+
+CMD ["python3", "log_writer.py"]
+

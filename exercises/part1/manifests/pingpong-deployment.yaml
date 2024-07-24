@@ -1,29 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-dep
+  name: pingpong-dep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: todo
+      app: pingpong
   template:
     metadata:
       labels:
-        app: todo
+        app: pingpong
     spec:
       volumes:
         - name: logs
           persistentVolumeClaim:
             claimName: logs-pvc
       containers:
-        - name: todo-main
-          image: 514sh/todo:1.0.1
+        - name: pingpong
+          image: 514sh/pingpong:1.1.0
           volumeMounts:
           - name: logs
             mountPath: /usr/src/app/logs
-        - name: image-uploader
-          image: 514sh/image-uploader:1.0.0
-          volumeMounts:
-          - name: logs
-            mountPath: /usr/src/app/logs
+

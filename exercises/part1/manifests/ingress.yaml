@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hashgenerator-ingress
+  labels:
+    name: hashgenerator-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: logger-svc
+            port: 
+              number: 1237
+      - pathType: Exact
+        path: "/pingpong"
+        backend:
+          service:
+            name: pingpong-svc
+            port:
+              number: 1236
+      - pathType: Prefix
+        path: "/logs"
+        backend:
+          service:
+            name: logger-svc
+            port:
+              number: 1237

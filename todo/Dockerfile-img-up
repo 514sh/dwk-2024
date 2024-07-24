@@ -1,0 +1,9 @@
+FROM python:3.12-alpine
+
+WORKDIR /usr/src/app
+
+COPY image_uploader.py /usr/src/app/
+
+RUN pip install requests
+
+CMD ["python3", "image_uploader.py"]
