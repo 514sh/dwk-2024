@@ -18,7 +18,7 @@ spec:
             claimName: logs-pvc
       containers:
         - name: todo-main
-          image: 514sh/todo:1.0.1
+          image: 514sh/todo@sha256:1f904c96be36d525a4508222a3b9b8bf4a12dfd711e01e510bc72dcf18d62d78
           volumeMounts:
           - name: logs
             mountPath: /usr/src/app/logs
